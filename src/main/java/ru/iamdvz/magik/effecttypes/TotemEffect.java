@@ -18,11 +18,11 @@ import ru.iamdvz.magik.utils.ItemsUtil;
 
 @Name("totem")
 public class TotemEffect extends SpellEffect {
-    private ConfigData<String> customModelData;
+    private ConfigData<Integer> customModelData;
 
     @Override
     protected void loadFromConfig(ConfigurationSection config) {
-        customModelData = ConfigDataUtil.getString(config, "custom-model-data", "1");
+        customModelData = ConfigDataUtil.getInteger(config, "custom-model-data", 1);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class TotemEffect extends SpellEffect {
         if (!(entity instanceof Player p)) return null;
 
         ItemStack offHandItem = p.getInventory().getItemInOffHand();
-        ItemStack item = ItemsUtil.setCMD(new ItemStack(Material.TOTEM_OF_UNDYING), Integer.parseInt(this.customModelData.get(data)));
+        ItemStack item = ItemsUtil.setCMD(new ItemStack(Material.TOTEM_OF_UNDYING), this.customModelData.get(data));
         ((CraftPlayer) p).getHandle().connection.send(new ClientboundContainerSetSlotPacket(0, 0, 45, CraftItemStack.asNMSCopy(item)));
         p.playEffect(EntityEffect.TOTEM_RESURRECT);
         ((CraftPlayer) p).getHandle().connection.send(new ClientboundContainerSetSlotPacket(0, 0, 45, CraftItemStack.asNMSCopy(offHandItem)));
