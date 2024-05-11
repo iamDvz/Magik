@@ -2,6 +2,6 @@ name: Magik
 main: ru.iamdvz.magik.Magik
 version: '${version}'
 api-version: "1.20"
-softdepend: [MagicSpells]
+softdepend: [MagicSpells, ProtocolLib]
 authors: [iamDvz]
 description: "Made with love by iamDvz#2005. From magician to magicians."

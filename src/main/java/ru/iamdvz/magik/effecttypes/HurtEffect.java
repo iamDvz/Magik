@@ -10,7 +10,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 
 @Name("hurt")
-public class HurtEffect  extends SpellEffect {
+public class HurtEffect extends SpellEffect {
     private ConfigData<Float> yaw;
     @Override
     protected void loadFromConfig(ConfigurationSection config) {

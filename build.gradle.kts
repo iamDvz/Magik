@@ -7,7 +7,7 @@ plugins {
 
 
 group = "groupId"
-version = "0.2"
+version = "0.4"
 description = "Magik"
 
 repositories {
@@ -20,11 +20,12 @@ repositories {
     maven (url = "https://repo.citizensnpcs.co")
     maven (url = "https://repo.dmulloy2.net/repository/public/")
     maven (url = "https://repo.maven.apache.org/maven2/")
+    maven (url = "https://repo.dmulloy2.net/repository/public/")
 }
 
 dependencies {
-    paperweight.paperDevBundle("1.20.4-R0.1-SNAPSHOT")
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    paperweight.paperDevBundle("1.20.4-R0.1-SNAPSHOT")
 
 }
 java.sourceCompatibility = JavaVersion.VERSION_17
