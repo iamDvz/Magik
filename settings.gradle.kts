@@ -8,4 +8,10 @@ pluginManagement {
         maven("https://papermc.io/repo/repository/maven-public/")
         maven("https://repo.papermc.io/repository/maven-public/")
     }
+    plugins {
+        kotlin("jvm") version "1.9.24"
+    }
+}
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
 }

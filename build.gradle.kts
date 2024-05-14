@@ -3,6 +3,7 @@ plugins {
     `maven-publish`
     `java-library`
     id("io.papermc.paperweight.userdev") version "1.6.3"
+    kotlin("jvm")
 }
 
 
@@ -21,14 +22,18 @@ repositories {
     maven (url = "https://repo.dmulloy2.net/repository/public/")
     maven (url = "https://repo.maven.apache.org/maven2/")
     maven (url = "https://repo.dmulloy2.net/repository/public/")
+    maven(url = "https://mvn.lumine.io/repository/maven-public/")
+    mavenCentral()
+
 }
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    compileOnly("com.ticxo.modelengine:ModelEngine:R4.0.4")
     paperweight.paperDevBundle("1.20.4-R0.1-SNAPSHOT")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.50")
 
 }
-java.sourceCompatibility = JavaVersion.VERSION_17
 
 publishing {
     publications.create<MavenPublication>("maven") {
@@ -38,4 +43,7 @@ publishing {
 
 tasks.withType<JavaCompile>() {
     options.encoding = "UTF-8"
+}
+kotlin {
+    jvmToolchain(17)
 }
